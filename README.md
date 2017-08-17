@@ -10,6 +10,7 @@ Items in the _globalVariables file should not need to be changed after personali
 Items which may need to be changed for each letter/invoice are located in _userVariables. By only having one file that needs to be updated regularly mitigates the amount of time needed to find the various components when making an invoice. It also mitigates the possibility of causing the file to break accidentally.
 
 Known Issues (To Be Fixed):
+
 Formatting error in \entries located withing longtable in _userVariables
 
 \vat must be set in _globalVariables right now...that should be moved to _userVariables
