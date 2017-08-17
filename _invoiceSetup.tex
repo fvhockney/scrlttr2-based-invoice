@@ -1,0 +1,15 @@
+%invoice stuff%
+\setkomavar{signature}{\null}
+\setkomavar{subject}{\null}
+\setkomavar{location}{Invoice Number:\\\usekomavar{invoice}\\\\
+	Invoice Date:\\\today}
+\setkomavar{date}{\null}
+\setkomavar{place}{\null}
+\setkomavar{placeseparator}{\null}
+\KOMAoptions{parskip=yes}
+\makeatletter
+\@setplength{toaddrvpos}{20mm}
+\@addtoplength{locvpos}{36mm}
+\@addtoplength[-]{refvpos}{45mm}
+\@addtoplength[-]{subjectaftervskip}{25mm}
+\makeatother

@@ -1,0 +1,34 @@
+%Invoice and Letter User Defined Variables%
+\setkomavar{invoice}{YYYYMMDD-\#\#}
+\newcommand{\daystopay}{14~}
+
+\newcommand{\customer}{%
+	Customer Name\\
+	Address I\\
+	Address II
+	}
+	
+\newcommand{\invoiceLetter}{%
+	I want to thank you for using my services for \textit{BLANK}. Following is your invoice for these services. Please review the invoice and contact me if you have any questions or concerns.
+	
+	It has been a pleasure doing business with you, and I look forward to working with you again in the future.
+	}
+
+\newcommand{\invoice}{%
+\begin{center}
+	\begin{longtable}{|llrrr|}
+		\hline
+		\textbf{Date} & \textbf{Description} & \textbf{Unit Price} & \textbf{Units} & \textbf{Item Total}\T\B\\
+		\hline
+		\endhead
+		\T\entry{Today}{Something I did}{10/hour}{6}{60.00}
+		\entry{Tomorrow}{Something I claim I did}{50/hour}{5}{250.00}
+		\hline\hline
+		\multicolumn{4}{|r}{Subtotal}&\FPround{\itemTotal}{\itemTotal}{2}\itemTotal\T\\*
+		\multicolumn{4}{|r}{VAT 0\%}&\FPround{\tax}{\tax}{2}\tax\\*[5pt]
+		\multicolumn{4}{|r}{\textbf{Grand Total}}&\FPround{\grandTotal}{\grandTotal}{2}\grandTotal\B\\*
+		\hline
+	\end{longtable}
+%	\footnotesize{Umsatzsteuerbefreiung für unmittelbar dem Schul- und Bildungszweck dienende Leistungen nach § 4 Nr. 21 a) bb) UStG.}
+\end{center}
+}

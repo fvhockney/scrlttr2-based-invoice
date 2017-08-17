@@ -1,0 +1,45 @@
+\documentclass[fontsize=12pt,paper=a4]{scrlttr2}
+
+\usepackage{scrlayer-scrpage}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman, english]{babel}
+\usepackage{graphicx,xcolor,eso-pic}
+\usepackage{longtable}
+\usepackage[nomessages]{fp}
+\usepackage{eurosym}
+\usepackage{lipsum}
+
+
+\include{_globalVariablesSettings}
+\include{_userVariables}
+\begin{document}
+	\begin{letter}{%
+			\customer
+			}
+\include{_letterSpecificSettings}
+		\opening{Dear Name}
+		\invoiceLetter
+		
+		\closing{Sincerely,}
+		\encl{Invoice \usekomavar{invoice}}
+			\end{letter}
+
+		\begin{letter}{%
+				Bill To:\\
+				\customer
+				}
+			\include{_invoiceSetup}
+			\opening{\null}
+			
+			\invoice
+			
+			Please submit payment within \daystopay days to:\\\\
+			\usekomavar{frombank}
+			\closing{\null}
+
+		\end{letter}
+		
+		
+
+\end{document}

@@ -1,0 +1,39 @@
+%constant variables%
+\setkomavar{fromname}{Your Name}
+\setkomavar{fromaddress}{Your Address I\\Your Address II}
+\setkomavar{fromphone}{Your Phone}
+\setkomavar{fromemail}{Your e-mail}
+\setkomavar{fromurl}{Your Web Address}
+\setkomavar{date}{\today}
+\setkomavar{place}{Your City}
+\setkomavar{frombank}{Your Name\\IBAN: Your IBAN\\BIC: Your BIC}
+\setkomavar{subject}{\textit{Subject: Invoice \usekomavar{invoice}}}
+\setkomavar{title}{Invoice}
+\setkomavar{fromlogo}{\includegraphics{tccLogoSmall}}
+
+%Letter Options
+\KOMAoptions{backaddress=false,fromalign=left,fromrule=afteraddress, pagenumber=footcenter,fromlogo}
+\removereffields
+
+
+\newcommand\T{\rule{0pt}{2.6ex}}       % Top strut after hline
+\newcommand\B{\rule[-1.0ex]{0pt}{0pt}} % Bottom strut before hline
+
+%Numbers Generator Generator
+\FPset{itemTotal}{0}
+\FPset{vat}{0.0} %as Decimal
+\newcommand{\entry}[5]{%
+	\FPeval{itemTotal}{itemTotal+#5}% Add to each itemTotal
+	\FPmul{\tax}{\vat}{\itemTotal}
+	\FPadd{\grandTotal}{\tax}{\itemTotal}
+	\xdef\grandTotal{\grandTotal}
+	\xdef\tax{\tax}
+	\xdef\itemTotal{\itemTotal}% Make definition \global
+	#1 & #2 & #3 & #4 & #5 \\% Set entry
+}
+
+%Define Headings Variables
+\lohead{\usekomavar{fromname}}
+\rohead{\usekomavar{Invoice \usekomavar{invoice}}}
+\lofoot{\usekomavar{fromemail}}
+\rofoot{\usekomavar{fromurl}}
